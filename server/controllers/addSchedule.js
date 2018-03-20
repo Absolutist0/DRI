@@ -20,6 +20,7 @@ module.exports = async (req, res) => {
     mysql(des).insert({
       openId: result.userinfo.openId,
       time: req.query.times,
+      nickname: result.userinfo.nickName,
     }).returning('*').then (res => {
       //console.log(res)
     })

@@ -16,17 +16,26 @@ module.exports = async (ctx, next) => {
   }
 
   const resultNanhu = []
+  const resultnickname=[]
   for (let i = 0; i < schesNanhu.length; i++) {
     resultNanhu.push(formatDate(schesNanhu[i].time))
+    resultnickname.push(schesNanhu[i].nickname)
   }
 
   const resultHunnan = []
   for (let i = 0; i < schesHunnan.length; i++) {
     resultHunnan.push(formatDate(schesHunnan[i].time))
+    resultnickname.push(schesHunnan[i].nickname)
   }
-
+   /*if(!resultnickname){
+     console.log("fuck");
+   }
+   else{
+     console.log("ruok");
+   }*/
   ctx.state.data = {
     schesNanhu: resultNanhu,
     schesHunnan: resultHunnan,
+    nickname:resultnickname,
   }
 }
