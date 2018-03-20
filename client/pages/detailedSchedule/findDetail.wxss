@@ -1,0 +1,43 @@
+page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.heading {
+  color: gray;
+  font-weight: 600;
+  font-size: large;
+  padding-top: 50rpx;
+}
+
+.heading2 {
+  color: lightgray;
+  font-weight: 500;
+  padding-top: 50rpx;
+}
+
+.date_time {
+  flex-direction: row;
+}
+
+.date {
+  float: left;
+  margin-right: 50rpx;
+}
+
+.time {
+  float: left;
+  margin-left: 50rpx;
+}
+
+.border {
+  margin-top: 30rpx;
+  border-style: solid;
+  border-radius: 20rpx;
+  border-color: lightsalmon;
+}
+
+.litMargin {
+  margin-top: 50rpx;
+}

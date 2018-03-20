@@ -1,0 +1,39 @@
+page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.heading {
+  color: gray;
+  font-weight: 600;
+  font-size: large;
+  padding-top: 100rpx;
+}
+
+.schedule {
+  align-items: initial;
+}
+
+.schedule picker-view {
+  width: 400rpx;
+  height: 500rpx;
+}
+
+.schedule picker-view picker-view-column {
+  line-height: 50px;
+}
+
+.schedule picker-view picker-view-column view {
+  text-align: center;
+}
+
+.litMargin {
+  margin-top: 50rpx;
+}
+
+.detail {
+  margin-top: 50rpx;
+  margin-left: 500rpx;
+  color: lightblue;
+}

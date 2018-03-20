@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container">
+    <view wx:if="{{logged}}">
+      <navigator url="../addSchedule/addSchedule" open-type="navigate" class="uploader-text">
+        <button>登记日程</button>
+      </navigator>
+      <navigator url="../findSchedule/findSchedule" open-type="navigate" class="uploader-text">
+        <button>拼车</button>
+      </navigator>
+       <navigator url="../myGroup/myGroup" open-type="navigate" class="uploader-text">
+        <button>我的圈子</button>
+        </navigator>
+        <navigator url="../myChart/myChart" open-type="navigate" class="uploader-text">
+        <button>行程查询</button>
+        </navigator>
+    </view>
+</view>

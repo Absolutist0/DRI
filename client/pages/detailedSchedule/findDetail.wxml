@@ -1,0 +1,37 @@
+<view class='container'>
+  <text class='heading'>完善拼车信息</text>
+  <text class='heading2'>最早可接受时间</text>
+  <view class='date_time'>
+    <picker mode="date" value="{{adate}}" id='1' start="{{adate}}" bindchange="bindDateChange" class="date border">
+      <view>{{adate}}</view>
+    </picker>
+    <picker mode="time" value="{{atime}}" id='1' bindchange="bindTimeChange" class="time border">
+      <view>{{atime}}</view>
+    </picker>
+  </view>
+  <text class='heading2'>最适出行时间</text>
+  <view class='date_time'>
+    <picker mode="date" value="{{bdate}}" id='2' start="{{bdate}}" bindchange="bindDateChange" class="date border">
+      <view>{{bdate}}</view>
+    </picker>
+    <picker mode="time" value="{{btime}}" id='2' bindchange="bindTimeChange" class="time border">
+      <view>{{btime}}</view>
+    </picker>
+  </view>
+  <text class='heading2'>最晚可接受时间</text>
+  <view class='date_time'>
+    <picker mode="date" value="{{cdate}}" id='3' start="{{cdate}}" bindchange="bindDateChange" class="date border">
+      <view>{{cdate}}</view>
+    </picker>
+    <picker mode="time" value="{{ctime}}" id='3' bindchange="bindTimeChange" class="time border">
+      <view>{{ctime}}</view>
+    </picker>
+  </view>
+  <radio-group class="litMargin" bindchange="selectDestination">
+    <label>目的地：</label>
+    <label wx:for="{{places}}">
+      <radio value="{{item.id}}" checked='{{item.checked}}'/>{{item.name}}
+    </label>
+  </radio-group>
+  <button class='litMargin' bindtap='submit'>找车</button>
+</view>

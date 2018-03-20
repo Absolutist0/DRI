@@ -1,0 +1,17 @@
+page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.heading {
+  color: gray;
+  font-weight: 600;
+  font-size: large;
+  padding-top: 50rpx;
+}
+
+.data view {
+  color: lightblue;
+  margin-top: 30rpx;
+}

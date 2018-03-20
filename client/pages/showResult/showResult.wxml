@@ -1,0 +1,8 @@
+<view class='container'>
+<view class='heading'>搜索到{{num}}条结果</view>
+<view class='data'>
+  <view>{{adate}}</view>
+  <view>{{bdate}}</view>
+  <view>{{cdate}}</view>
+</view>
+</view>

@@ -1,0 +1,30 @@
+<view class='container'>
+  <text class='heading'>添加出行日程</text>
+  <view class='schedule'>
+      <picker-view indicator-style="height: 50px;" bindchange="selectDate" value="{{value}}">
+        <picker-view-column>
+          <view wx:for="{{years}}">{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{months}}">{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{days}}">{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{hours}}">{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{minutes}}">{{item}}</view>
+        </picker-view-column>
+      </picker-view>
+  </view>
+  <view class='litMargin'>{{year}}年{{month}}月{{day}}日 {{hour}}时{{minute}}分</view>
+  <radio-group class="litMargin" bindchange="selectDestination">
+    <label>目的地：</label>
+    <label wx:for="{{places}}">
+      <radio value="{{item.id}}" checked='{{item.checked}}'/>{{item.name}}
+    </label>
+  </radio-group>
+  <button class='litMargin' bindtap='submit'>添加日程</button>
+</view>
