@@ -3,12 +3,14 @@ const { mysql } = require('../qcloud.js')
 
 module.exports = async (ctx, next) => {
   const { 'x-wx-skey': skey } = ctx.headers
-  var result = await mysql('cSessionInfo').select('open_id').where({ skey })
-  if (!result[0].open_id) {
+
+   var result = await mysql('cSessionInfo').select('open_id').where({ skey })
+  if (result[0].open_id) {
+    
     // to do
   }
-  var schesNanhu = await mysql('scheDesNanhu').select('*').where('openId', result[0].open_id)
-  var schesHunnan = await mysql('scheDesHunnan').select('*').where('openId', result[0].open_id)
+  var schesNanhu = await mysql('scheDesNanhu').select('*')//.where('openId', result[0].open_id)
+  var schesHunnan = await mysql('scheDesHunnan').select('*')//.where('openId', result[0].open_id)
 
   var formatDate = function (time) {
     var tmp = new Date(time)
