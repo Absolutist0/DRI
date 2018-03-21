@@ -6,8 +6,12 @@ Page({
   data: {
     num: 0,
     adate: '',
+    aname: '',
     bdate: '',
+    bname: '',
     cdate: '',
+    cname: '',
+    
   },
 
   /**
@@ -16,8 +20,11 @@ Page({
   onLoad: function (options) {
     this.setData({
       adate: options.adate,
+      aname: options.aname,
       bdate: options.bdate,
+      bname: options.bname,
       cdate: options.cdate,
+      cname: options.cname,
       num: options.num,
     })
   },

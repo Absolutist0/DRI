@@ -60,6 +60,7 @@ module.exports = async (ctx, next) => {
     return tmp.getFullYear() + '-' + (tmp.getMonth() + 1) + '-' + tmp.getDate() + ' ' + tmp.getHours() + ':' + tmp.getMinutes()
   }
 
+
   var p1 = best, p2 = best + 1
   const bestData = []
   for (let i = 0; i < 3; i++) {
@@ -98,8 +99,9 @@ module.exports = async (ctx, next) => {
   const bestTime = []
 
   for (let i = 0; i < bestData.length; i++) {
-    var tmp = await mysql('cSessionInfo').select('user_info').where('open_id', bestData[i].openId)
-    userName.push(tmp[0].user_info)
+    /*var tmp = await mysql('cSessionInfo').select('user_info').where('open_id', bestData[i].openId)*/
+    var tmp = await mysql(des).select('nickname').where('openId', bestData[i].openId)
+    userName.push(tmp[0].nickname)
     bestTime.push(formatDate(bestData[i].time))
   }
 

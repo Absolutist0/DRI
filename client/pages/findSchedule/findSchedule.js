@@ -79,21 +79,38 @@ Page({
       success(result) {
         util.showSuccess('查询完成')
         var tmp = result.data.data.bestTime
+        var nametmp = result.data.data.userName
         console.log(result)
         var adate = ''
         var bdate = ''
         var cdate = ''
-        if (tmp.length >= 1) {
+        var aname = ''
+        var bname = ''
+        var cname = ''
+        if (tmp.length >= 1 ) {
           adate = tmp[0]
-        }
+         }
+         else{
+           console.log('fuck')
+         }
         if (tmp.length >= 2) {
           bdate = tmp[1]
         }
         if (tmp.length >= 3) {
           cdate = tmp[2]
         }
+        if (nametmp.length >= 1) {
+          aname = nametmp[0]
+        } 
+        if (nametmp.length >= 2) {
+          bname = nametmp[1]
+        } 
+        if (nametmp.length >= 1) {
+          cname = nametmp[2]
+        }
         wx.navigateTo({
-          url: '../showResult/showResult?adate=' + adate + '&bdate=' + bdate + '&cdate=' + cdate + '&num=' + tmp.length,
+          //url: '../showResult/showResult?adate=' + adate + '&bdate=' + bdate + '&cdate=' + cdate + '&num=' + tmp.length,
+          url: '../showResult/showResult?adate=' + adate + '&bdate=' + bdate + '&cdate=' + cdate + '&num=' + tmp.length + '&aname=' + aname + '&bname=' + bname + '&cname=' + cname,
         })
       },
       fail(error) {
