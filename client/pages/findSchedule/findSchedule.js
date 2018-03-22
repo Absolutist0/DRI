@@ -105,7 +105,7 @@ Page({
         if (nametmp.length >= 2) {
           bname = nametmp[1]
         } 
-        if (nametmp.length >= 1) {
+        if (nametmp.length >= 3) {
           cname = nametmp[2]
         }
         wx.navigateTo({

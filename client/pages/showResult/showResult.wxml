@@ -3,6 +3,6 @@
 <view class='data'>
   <view>{{adate}}  {{aname}}</view>
   <view>{{bdate}}  {{bname}}</view>
-  <view>{{cdate}}  </view>
+  <view>{{cdate}}  {{cname}}</view>
 </view>
 </view>
