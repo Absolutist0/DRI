@@ -1,0 +1,18 @@
+<view class='myfriend'>
+  <view class='nameSection'>
+    <text class='name'>备注名:</text>
+    <input class='input-name' bindinput='getName' 
+    placeholder='{{listShow[index].title}}' type='text'></input>
+  </view>
+  <view class='numSection'>
+    <text class='phone-number'>电话号码:</text>
+    <input class='input-number' bindinput='getNumber' 
+    placeholder='{{listShow[index].phone}}' type='number'></input>
+  </view>
+  <navigator url='../myGroup/myGroup' open-type='redirectTo'>
+    <button class='edit-button' bindtap='editFriend'>修改</button>
+  </navigator>
+  <navigator url='../myGroup/myGroup' open-type='redirectTo'>
+    <button class='delete-button' bindtap='deleteFriend'>删除</button>
+  </navigator>
+</view>
