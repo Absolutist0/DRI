@@ -35,5 +35,5 @@ router.post('/message', controllers.message.post)
 router.get('/addSchedule', controllers.addSchedule)
 router.get('/findSchedule', controllers.findSchedule)
 router.get('/userScheInfo', controllers.userScheInfo)
-
+router.get('/friendremark', controllers.friendremark)
 module.exports = router
