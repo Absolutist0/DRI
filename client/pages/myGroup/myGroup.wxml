@@ -1,23 +1,37 @@
 <view class="user">
+
+    <navigator url='../myFriend/myFriend' open-type='redirectTo'>
+      <button class='add' size="mini">添加好友</button>
+    </navigator>
+
     <view class="userinfo">
         <image class="avatar"
             src="{{userInfo.avatarUrl}}"
-            background-size="cover"
-        ></image>
+            background-size="cover"></image>
        <text class="nickname">{{userInfo.nickName}}</text>
     </view>
-  <view wx:for="{{listShow}}">
-    <view >
-      <view  bindtap="showContent"  data-index="{{index}}" class="title" >{{item.title}}
-        <view class="action" >
-         <text bindtap="remove" data-index="{{index}}" class="marlr10">删除  </text>   
-         <text bindtap="edit" data-index="{{index}}" >修改</text>
+    
+    <scroll-view scroll-y="true" style="height: 400px;" bindscrolltoupper="upper"        bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}"          scroll-top="{{scrollTop}}">
+
+      <view wx:for="{{listShow}}" wx:for-item="item" wx:key="">
+
+        <view class="friends" bindtap="showContent" data-index="{{index}}">         
+          <text class='friend-name'>{{item.title}}</text>
         </view>
+
+        <view  class="pick-container {{item.show ?'showClass': 'hideClass'}}">
+          <view class='action'>
+          <text class='tele'>联系好友：</text>
+            <view class='tele-number' bindlongtap='phoneNumTap'>{{item.phone}}</view>
+            <navigator url= '../editFriend/editFriend?index={{index}}'                            open-type='redirectTo'>
+              <button class='change' size='mini'>编辑</button>
+            </navigator>
+          </view>
+        </view>
+
       </view>
-      <view  class="{{item.show ? 'showClass' : 'hideClass'}}">{{item.content}}
-      </view>
-    </view>
-  </view>
+
+    </scroll-view>
+
 </view>
- <button class="createg" bindtap='creategroup'>创建圈子</button>
- <button class="researchg" bindtap='researchgroup'>寻找圈子</button>
+ 
