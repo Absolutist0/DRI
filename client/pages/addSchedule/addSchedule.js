@@ -29,8 +29,11 @@ Page({
     minute: parseInt(date.getMinutes() / 10) * 10,
     minutes: minutes,
     places: [{ name: "南湖", id: 0, checked: true, }, { name: "浑南", id: 1, checked: false, }],
+    passenger: [{ num: 4, checked: true }, { num: 3, checked: false},
+    {num: 2, checked: false }, { num: 1, checked: false}],
     value: [0, date.getHours(), parseInt(date.getMinutes() / 10)],
     destination: 0,
+    passNum:0
   },
 
   selectDate: function (e) {
@@ -50,14 +53,19 @@ Page({
     this.setData({ destination: e.detail.value, })
   },
 
+  selectPassenger: function(e){
+    this.setData({ passNum: e.detail.value })
+  },
+
   submit: function () {
     util.showBusy('上传中...')
     var that = this
     qcloud.request({
       url: `${config.service.host}/weapp/addSchedule`,
       data: {
-        times: that.data.year + '-' + that.data.month + '-' + that.data.day + ' ' + that.data.hour + ':' + that.data.minute,
+        times: that.data.year + '-' + that.data.month + '-' + that.data.day + ' ' + that.data.hour          + ':' + that.data.minute,
         destination: that.data.destination,
+        passNum:that.data.passNum
       },
       login: true,
       success(result) {
@@ -70,59 +78,4 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

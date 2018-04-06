@@ -11,12 +11,14 @@
       </picker-view>
   </view>
   <view class='litMargin'>{{year}}年{{month}}月{{day}}日 {{time}}</view>
-  <radio-group class="litMargin" bindchange="selectDestination">
-    <label>目的地：</label>
-    <label wx:for="{{places}}">
-      <radio value="{{item.id}}" checked='{{item.checked}}'/>{{item.name}}
-    </label>
-  </radio-group>
-  <button class='litMargin' bindtap='submit'>寻找可用车</button>
+  <view class='button'>
+    <navigator url='../toHunNan/toHunNan' open-type='navigate'>
+      <button  bindtap='submit'>去浑南</button>
+    </navigator>
+    <view class="setMargin"></view>
+    <navigator url='../toNanHu/toNanHu' open-type='navigate'>
+      <button bindtap='submit'>去南湖</button>
+    </navigator>
+  </view>
   <navigator url="../detailedSchedule/findDetail" open-type="navigate" class='detail'>添加详细信息</navigator>
 </view>

@@ -1,0 +1,14 @@
+<view class="firstStep" wx:if="{{!logged}}">
+  <view class='block1'>
+    <text class='location'>国家/地区</text>
+    <text class='country'>中国</text>
+  </view>
+  <view class='block2'>
+    <image src='../Images/phone.png' style='width:50rpx;margin-top:10px;margin-left:20px'                  mode='widthFix'></image>
+    <input class='phoneNum' bindinput='input_phoneNum' type='number'
+    placeholder="请输入手机号码"></input>
+  </view>
+  <view>
+    <button class='next' bindtap='nextStep'>下一步</button>
+  </view>
+</view>

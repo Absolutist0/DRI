@@ -1,0 +1,84 @@
+page {
+    background: #F6F6F6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.friends{
+    display: flex;
+    height: 50px;
+    width: 100%;
+    margin-top: 5px;
+    background-color: #FFF;
+    justify-content: center;
+    align-content: center;
+  }
+
+.friend-name{
+    display: flex;
+    width: 80%;
+    justify-content: left;
+    left: 10px;
+    margin-top: 10px;
+  }
+
+  .image{
+    margin-top: 10px;
+  }
+
+.change{
+  position: absolute;
+  right: 25px;
+  top: 10px;
+}
+
+.pick-container { 
+    position: relative; 
+    width: 90%; 
+    height: 130px;
+    margin-left: 5%;
+    border: 0.9px solid black;
+    border-radius: 10px;
+    background-color: lightgoldenrodyellow; 
+    top: 5px; 
+  }
+
+.showClass{
+  display:block;
+}
+
+.hideClass{
+  display:none;
+}
+
+.tele-number{
+    position: relative;
+    color: #2A53CD;
+    height: 30px;
+    left: 5px;
+    top: 10px;
+  }
+
+.stroke{
+  position: relative;
+  height: 20px;
+  margin-top: 10px;
+}
+
+.time{
+  margin-top: 20px;
+  width: 40%;
+  position: absolute;
+  left: 5px;
+}
+
+.destination{
+  margin-top: 20px;
+  width:40%;
+  position:absolute;
+  right: 5px;
+}
+
+
+

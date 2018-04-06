@@ -29,11 +29,11 @@ page {
 }
 
 .litMargin {
-  margin-top: 50rpx;
+  margin-top: 40rpx;
 }
 
 .detail {
-  margin-top: 50rpx;
+  margin-top: 30rpx;
   margin-left: 500rpx;
   color: lightblue;
 }

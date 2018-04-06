@@ -48,7 +48,7 @@ Page({
         })
       }
     })
-    that.data.listShow = app.listShow,
+    that.data.listShow = app.list_NanHu,
       that.setData({
         'listShow': that.data.listShow
       })
@@ -72,6 +72,16 @@ Page({
     wx.reLaunch({
       url: '../index/index',
     })
+  },
+
+  upper: function (e) {
+    console.log(e)
+  },
+  lower: function (e) {
+    console.log(e)
+  },
+  scroll: function (e) {
+    console.log(e)
   },
 
 })

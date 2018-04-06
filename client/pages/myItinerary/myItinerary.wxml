@@ -1,0 +1,15 @@
+<view>
+  <view class="header">
+    <view class="th_des">目的地</view>
+    <view class="th_time">时间</view>
+  </view>
+  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" 
+  bindtouchstart="touchstart" bindtouchmove="touchmove" data-index='{{index}}'
+  wx:for="{{listData}}" wx:for-item="item" wx:key="">
+    <view class="content">
+      <view class="td_des">{{item.destination}}</view>
+      <view class="td_time">{{item.time}}</view>
+    </view>
+    <view class='del' data-index='{{index}}' catchtap='del'>删除</view>
+  </view>
+</view>

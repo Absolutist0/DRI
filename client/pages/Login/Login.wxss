@@ -1,0 +1,47 @@
+.firstStep{
+  margin-top: 40%;
+}
+
+.block1{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 20px;
+}
+
+.location{
+  height: 40px;
+  width: 40%;
+  color: #c9c9c9;
+  font-size: 23px;
+  text-align: center;
+}
+
+.country{
+  height: 40px;
+  width: 40%;
+  text-align: center;
+  line-height: 75rpx;
+  border: 0.5px solid black;
+  border-radius: 10px;
+}
+
+.block2{
+  display: flex;
+  height: 40px;
+  margin-top: 40px;
+}
+
+.phoneNum{
+  width: 80%;
+  margin-top: 10px;
+  margin-left: 20px;
+  border-bottom: 0.5px solid black;
+}
+
+.next{
+  margin-top: 60px;
+  width: 60%;
+  color: white;
+  background-color: green;
+}

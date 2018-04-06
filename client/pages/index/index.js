@@ -3,9 +3,12 @@ var qcloud = require('../../vendor/wafer2-client-sdk/index')
 var config = require('../../config')
 var util = require('../../utils/util.js')
 
+var app = getApp()
+
 Page({
   data: {
-    userInfo: {},
+    phoneNum:"",
+    userInfo: false,
     logged: false,
     takeSession: false,
     requestResult: ''
@@ -13,21 +16,28 @@ Page({
 
   // 用户登录示例
   onLoad: function () {
-    if (this.data.logged) return
 
-    util.showBusy('正在登录')
+    if (this.data.logged) return
     var that = this
 
     // 调用登录接口
     qcloud.login({
       success(result) {
         if (result) {
+
           util.showSuccess('登录成功')
           that.setData({
             userInfo: result,
             logged: true
           })
-        } else {
+        } 
+        else {
+/*
+          wx.navigateTo({
+            url: '../Login/Login',
+          })
+*/
+          util.showBusy('正在登录')
           // 如果不是首次登录，不会返回用户信息，请求用户信息接口获取
           qcloud.request({
             url: config.service.requestUrl,
@@ -39,19 +49,20 @@ Page({
                 logged: true
               })
             },
-
             fail(error) {
               util.showModel('请求失败', error)
               console.log('request fail', error)
             }
           })
-        }
-      },
+      
 
+        }//else
+      },
       fail(error) {
         util.showModel('登录失败', error)
         console.log('登录失败', error)
       }
     })
-  },
+  },//onLoad
+
 })

@@ -3,22 +3,28 @@
   <view class='schedule'>
       <picker-view indicator-style="height: 50px;" bindchange="selectDate" value="{{value}}">
         <picker-view-column>
-          <view wx:for="{{days}}">{{item}}</view>
+          <view wx:for="{{days}}" wx:key="">{{item}}</view>
         </picker-view-column>
         <picker-view-column>
-          <view wx:for="{{hours}}">{{item}}</view>
+          <view wx:for="{{hours}}" wx:key="">{{item}}</view>
         </picker-view-column>
         <picker-view-column>
-          <view wx:for="{{minutes}}">{{item}}</view>
+          <view wx:for="{{minutes}}" wx:key="">{{item}}</view>
         </picker-view-column>
       </picker-view>
   </view>
   <view class='litMargin'>{{year}}年{{month}}月{{day}}日 {{hour}}时{{minute}}分</view>
   <radio-group class="litMargin" bindchange="selectDestination">
     <label>目的地：</label>
-    <label wx:for="{{places}}">
-      <radio value="{{item.id}}" checked='{{item.checked}}'/>{{item.name}}
+    <label wx:for="{{places}}" wx:key="">
+      {{item.name+" "}}<radio value="{{item.id}}" checked='{{item.checked}}'/>
     </label>
+  </radio-group>
+  <radio-group class="litMargin" bindchange="selectPassenger">
+   <label>可乘人数：</label>
+   <label wx:for='{{passenger}}' wx:key="">
+    {{item.num+" "}}<radio value='{{item.num}}' checked='{{item.checked}}'></radio>
+   </label>
   </radio-group>
   <button class='litMargin' bindtap='submit'>添加日程</button>
   <navigator url="../detailedSchedule/addDetail" open-type="navigate" class='detail'>添加详细日程</navigator>

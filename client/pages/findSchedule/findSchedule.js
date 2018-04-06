@@ -43,10 +43,6 @@ Page({
     })
   },
 
-  selectDestination: function (e) {
-    this.setData({ destination: e.detail.value, })
-  },
-
   submit: function () {
     util.showBusy('查询中...')
     var that = this
@@ -73,7 +69,7 @@ Page({
         atimes: date + ' ' + atime,
         btimes: date + ' ' + btime,
         ctimes: date + ' ' + ctime,
-        destination: that.data.destination,
+        //destination: that.data.destination,
       },
       login: true,
       success(result) {
@@ -112,66 +108,12 @@ Page({
           //url: '../showResult/showResult?adate=' + adate + '&bdate=' + bdate + '&cdate=' + cdate + '&num=' + tmp.length,
           url: '../showResult/showResult?adate=' + adate + '&bdate=' + bdate + '&cdate=' + cdate + '&num=' + tmp.length + '&aname=' + aname + '&bname=' + bname + '&cname=' + cname,
         })
+
+        
       },
       fail(error) {
         util.showModel('上传失败', error);
       }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
