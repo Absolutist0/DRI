@@ -2,6 +2,7 @@
 <view class="container">
 
     <view wx:if="{{logged}}">
+
       <view class="userinfo">
           <image class="avatar"
               src="{{userInfo.avatarUrl}}"
@@ -9,16 +10,15 @@
           <text class="nickname">{{userInfo.nickName}}</text>
       </view>
 
-      <navigator url="../addSchedule/addSchedule" open-type="navigate"                      class="uploader-text">
-        <button>我要发车</button>
-      </navigator>
+    <button class="uploader-text" bindtap='addSchedule'>我要发车</button>
+    
+    <button class="uploader-text" bindtap='findSchedule'>我要拼车</button>
+        
+    <button class="uploader-text" bindtap='myItinerary'>我的行程</button>
 
-      <navigator url="../findSchedule/findSchedule" open-type="navigate"                    class="uploader-text">
-        <button>我要拼车</button>
-      </navigator>
+    <navigator url="../Login/Login" open-type="navigate" class="uploader-text">
+      <button>我的手机</button>
+    </navigator>
 
-        <navigator url="../myItinerary/myItinerary" open-type="navigate"                              class="uploader-text">
-        <button>我的行程</button>
-        </navigator>
     </view>
 </view>

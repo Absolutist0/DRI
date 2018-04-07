@@ -7,9 +7,13 @@ var app = getApp();
 Page({
 
   data: {
-    userInfo: app.userInfo,
-    logged: false,
-    phoneNum: '',
+    phoneNum: "请输入您的手机号",
+    show: "绑定手机"
+  },
+
+  onLoad: function(){
+    //访问后端判断是否绑定了手机号
+    
   },
 
   input_phoneNum: function (e) {
@@ -21,29 +25,9 @@ Page({
   nextStep: function () {
     
     if (this.data.phoneNum.length == 11) {
-
-      util.showBusy('正在登录')
-      qcloud.request({
-        url: config.service.requestUrl,
-        login: true,
-        success(result) {
-          util.showSuccess('登录成功')
-          that.setData({
-            userInfo: result.data.data,
-            logged: true
-          })
-          app.logged = this.data.logged;
-        },
-        fail(error) {
-          util.showModel('请求失败', error)
-          console.log('request fail', error)
-        }
-      })
       wx.redirectTo({
         url: '../index/index',
       })
-
-
     }
      else {
       wx.showModal({

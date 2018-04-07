@@ -33,7 +33,7 @@ page {
 	  flex-direction: column;
     align-items: center;
     transition: all 300ms ease;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .avatar {
@@ -55,5 +55,4 @@ page {
 
 .uploader-text{
     margin-top: 60rpx;
-    color: #007AFF;
 }

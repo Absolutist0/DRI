@@ -6,9 +6,9 @@
   <view class='block2'>
     <image src='../Images/phone.png' style='width:50rpx;margin-top:10px;margin-left:20px'                  mode='widthFix'></image>
     <input class='phoneNum' bindinput='input_phoneNum' type='number'
-    placeholder="请输入手机号码"></input>
+    placeholder="{{phoneNum}}"></input>
   </view>
   <view>
-    <button class='next' bindtap='nextStep'>下一步</button>
+    <button class='next' bindtap='nextStep'>{{show}}</button>
   </view>
 </view>
