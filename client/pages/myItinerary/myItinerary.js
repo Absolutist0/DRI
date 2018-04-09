@@ -7,10 +7,14 @@ Page({
     listData: [{
       time:"4.5 21:46",
       destination:"浑南",
+      capacity:3,
+      state:false,
       isTouchMove: false
     },{
-      time:"4.5 21:46",
+      time:"4.5",
       destination: "南湖",
+      capacity:2,
+      state:false,
       isTouchMove: false
     }],
     startX:0,
@@ -69,7 +73,12 @@ Page({
   },
   //删除事件
   del: function (e) {
-    this.data.listData.splice(e.currentTarget.dataset.index, 1)
+    var index = e.currentTarget.dataset.index;
+    var time = this.data.listData[index].time;
+    var destination = this.data.listData[index].destination;
+    console.log(time);
+    console.log(destination);
+    this.data.listData.splice(index, 1)
     this.setData({
       listData: this.data.listData
     })
@@ -93,6 +102,15 @@ Page({
     // })
 
   },
+
+  switch: function(e){
+    var index = "listData[" + e.currentTarget.dataset.index+"].state";
+      this.setData({
+        [index]: e.detail.value
+      })
+      console.log(this.data.listData);
+  },
+
   onLoad: function(){
      var that = this 
      util.showBusy('查询中...')
