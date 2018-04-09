@@ -21,6 +21,7 @@ module.exports = async (req, res) => {
       openId: result.userinfo.openId,
       time: req.query.times,
       nickname: result.userinfo.nickName,
+      peoplenum: req.query.passNum
     }).returning('*').then (res => {
       //console.log(res)
     })

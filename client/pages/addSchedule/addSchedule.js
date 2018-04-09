@@ -33,7 +33,7 @@ Page({
     {num: 2, checked: false }, { num: 1, checked: false}],
     value: [0, date.getHours(), parseInt(date.getMinutes() / 10)],
     destination: 0,
-    passNum:0
+    passNum:4
   },
 
   selectDate: function (e) {

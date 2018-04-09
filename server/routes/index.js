@@ -36,4 +36,8 @@ router.get('/addSchedule', controllers.addSchedule)
 router.get('/findSchedule', controllers.findSchedule)
 router.get('/userScheInfo', controllers.userScheInfo)
 router.get('/friendremark', controllers.friendremark)
+router.get('/phonenumber' , controllers.phonenumber)
+router.get('/findnumber' , controllers.findnumber)
+router.get('/myschedule',  controllers.myschedule)
+router.get('/deleschedule', controllers.deleschedule)
 module.exports = router

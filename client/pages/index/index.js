@@ -13,15 +13,12 @@ Page({
     requestResult: '',
     phoneNum:false
   },
-
+ 
   // 用户登录示例
   onLoad: function () {
-   //访问后端,如果已经绑定手机号 将PhoneNum改成true
-
 
     if (this.data.logged) return
     var that = this
-
     // 调用登录接口
     qcloud.login({
       success(result) {
@@ -60,6 +57,31 @@ Page({
         console.log('登录失败', error)
       }
     })
+      //  访问后端,如果已经绑定手机号 将PhoneNum改成true
+      qcloud.request({
+        url: `${config.service.host}/weapp/findnumber`,
+        data: {
+        },
+        login: true,
+        success(result) {
+          // util.showSuccess('查询完成')
+          var tmp = result.data.data.isexist
+          var nownum = result.data.data.phonenum
+          that.setData({
+            phoneNum: tmp
+          })
+          console.log(tmp)
+          console.log(nownum)
+       
+        },
+        fail(error) {
+          // util.showSuccess('未绑定手机号');
+          that.setData({
+            phoneNum : false
+          })
+        }
+      })
+    
   },//onLoad
 
   addSchedule: function(){
@@ -126,6 +148,7 @@ Page({
         }
       })
     }
-  }
+  },
+ 
 
 })
