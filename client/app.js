@@ -11,7 +11,8 @@ App({
         qcloud.setLoginUrl(config.service.loginUrl)
     },
 
-    list_HunNan:[{
+    list_HunNan:[
+      {
       title: "kobe",
       phone: 12580,
       stroke: [{
@@ -37,7 +38,8 @@ App({
     
     ],
 
-    list_NanHu:[{
+    list_NanHu:[
+      {
       title: "Carry",
       phone: 12580,
       stroke: [{
@@ -48,5 +50,6 @@ App({
         passenger: "2"
       }],
       show: false
-    }]
+    }
+    ]
 })

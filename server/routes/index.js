@@ -40,4 +40,6 @@ router.get('/phonenumber' , controllers.phonenumber)
 router.get('/findnumber' , controllers.findnumber)
 router.get('/myschedule',  controllers.myschedule)
 router.get('/deleschedule', controllers.deleschedule)
+router.get('/changestatus', controllers.changestatus)
+router.get('getname', controllers.getname)
 module.exports = router

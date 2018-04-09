@@ -4,19 +4,21 @@ var util = require('../../utils/util.js')
 
 Page({
   data: {
-    listData: [{
-      time:"4.5 21:46",
-      destination:"浑南",
-      capacity:3,
-      state:false,
-      isTouchMove: false
-    },{
-      time:"4.5",
-      destination: "南湖",
-      capacity:2,
-      state:false,
-      isTouchMove: false
-    }],
+    listData: [
+    //   {
+    //   time:"4.5 21:46",
+    //   destination:"浑南",
+    //   capacity:3,
+    //   state:false,
+    //   isTouchMove: false
+    // },{
+    //   time:"4.5",
+    //   destination: "南湖",
+    //   capacity:2,
+    //   state:false,
+    //   isTouchMove: false
+    // }
+    ],
     startX:0,
     startY:0
   },
@@ -73,42 +75,63 @@ Page({
   },
   //删除事件
   del: function (e) {
-    var index = e.currentTarget.dataset.index;
+     var index = e.currentTarget.dataset.index;
     var time = this.data.listData[index].time;
     var destination = this.data.listData[index].destination;
     console.log(time);
     console.log(destination);
     this.data.listData.splice(index, 1)
+    var that = this
+    qcloud.request({
+      url: `${config.service.host}/weapp/deleschedule`,
+      data: {
+        des: destination,
+        time: time
+      },
+      login: true,
+      success(result) {  
+        util.showSuccess('删除成功')      
+         console.log(result)  
+      },
+      fail(error) {
+        util.showSuccess('删除失败');
+      }
+    })
+
     this.setData({
       listData: this.data.listData
     })
-    // var that = this
-    // qcloud.request({
-    //   url: `${config.service.host}/weapp/deleschedule`,
-    //   login: true,
-    //   success(result) {
-    //      util.showSuccess('上传完成')
-    //      data: {
-    //        des: 
-    //        time : 
-    //      }
-    //     // that.setData({
-    //     //   listData: data,
-    //     // })
-    //   },
-    //   fail(error) {
-    //     util.showSuccess('上传失败');
-    //   }
-    // })
-
   },
 
   switch: function(e){
     var index = "listData[" + e.currentTarget.dataset.index+"].state";
+    var id = e.currentTarget.dataset.index;
+    var time = this.data.listData[id].time;
+    var destination = this.data.listData[id].destination;
+    var state = this.data.listData[id].state
+    console.log(time);
+    console.log(destination);
+    console.log(id)
       this.setData({
         [index]: e.detail.value
       })
       console.log(this.data.listData);
+      qcloud.request({
+        url: `${config.service.host}/weapp/changestatus`,
+        data: {
+          des: destination,
+          time: time,
+          state : state
+        },
+        login: true,
+        success(result) {
+          util.showSuccess('操作成功')
+          console.log(result)
+        },
+        fail(error) {
+          util.showSuccess('操作失败');
+        }
+      })
   },
 
   onLoad: function(){
@@ -122,9 +145,41 @@ Page({
         util.showSuccess('查询完成')
         var nanhu = result.data.data.nanhusche
         var hunnan = result.data.data.hunnansche       
-        // that.setData({
-        //   listData: data,
-        // })
+        const data = []
+        if (!nanhu) {
+          nanhu = []
+        }
+        if (!hunnan) {
+          hunnan = []
+        }
+        var nname=result.data.data.nickname
+        if(!nname){
+          util.showSuccess('fuck')
+          nname=[]
+        }
+        // var index = 1
+        for (let i = 0; i < nanhu.length; i++) {
+          data.push({
+      time:nanhu[i].time,
+      destination:"南湖",
+      capacity:nanhu[i].peoplenum,
+      state:nanhu[i].status,
+      isTouchMove: false
+    })
+        }
+        for (let i = 0; i < hunnan.length; i++) {
+          data.push({
+            time: hunnan[i].time,
+            destination: "浑南",
+            capacity: hunnan[i].peoplenum,
+            state: hunnan[i].status,
+            isTouchMove: false
+          })
+          
+        }
+        that.setData({
+          listData: data,
+        })
       },
       fail(error) {
         util.showModel('查询失败', error);
