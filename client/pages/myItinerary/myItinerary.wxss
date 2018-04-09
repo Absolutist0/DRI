@@ -3,15 +3,18 @@
   flex-direction: row;
   border: 1px solid;
   border-radius: 10px;
-  width: 86%;
-  margin-left: 7%;
+  width: 90%;
+  margin-left: 5%;
   margin-top: 30px;
   height: 50px;
+  border-color: #5cadad;
+  color: #8e8e8e;
 }
 
-.th_des {
+.th_ds {
   display: flex;
-  width: 48%;
+  margin-left: 20px;
+  width: 25%;
   height: 50px;
   justify-content: center;
   align-items: center;
@@ -19,7 +22,24 @@
 
 .th_time{
   display: flex;
-  width: 38%;
+  width: 25%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.th_capacity{
+  display: flex;
+  width: 25%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.isFull{
+  display: flex;
+  margin-right: 20px;
+  width: 25%;
   height: 50px;
   justify-content: center;
   align-items: center;
@@ -36,14 +56,25 @@
   border: 1px solid;
   border-radius: 10px;
   width: 90%;
-  margin-left: 13%;
+  margin-left: 10%;
   margin-top: 5px;
   height: 50px;
+  border-color: #5cadad;
+  color: #7b7b7b;
+}
+
+.switch{
+  display: flex;
+  width: 20%;
+  justify-content: center;
+  align-content: center;
+  height: 50px;
+  margin-left: 10px;
 }
 
 .td_des {
     display: flex;
-    width:40%;
+    width:30%;
     justify-content: center;
     align-items: center;
     height: 50px;
@@ -51,7 +82,15 @@
 
 .td_time{
     display: flex;
-    width:50%;
+    width:30%;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.td_capacity{
+    display: flex;
+    width:20%;
     justify-content: center;
     align-items: center;
     height: 50px;
