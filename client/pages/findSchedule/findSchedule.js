@@ -84,58 +84,7 @@ Page({
         console.log(model)
         wx.navigateTo({          
           url: '../toNanHu/toNanHu?model='+model,
-        })
-        //  console.log(app.list_NanHu)
-        // var tmp1 = result.data.data.hunnanlist
-        // var tmp2 = result.data.data.nanhulist
-        // const data1 = []
-        // const data2 = []
-        // for (let i = 0; i < tmp1.length;i++){
-        //   data1.push({
-        //     title: tmp1[i].nickname,            
-        //     show: false
-        //   })
-        // }
-        // for (let i = 0; i < tmp2.length; i++) {
-        //   data2.push({
-        //     title: tmp2[i].nickname,
-        //     show: false
-        //   })
-        // }
-        // var tmp = result.data.data.bestTime
-        // var nametmp = result.data.data.userName
-        // console.log(result)
-        // var adate = ''
-        // var bdate = ''
-        // var cdate = ''
-        // var aname = ''
-        // var bname = ''
-        // var cname = ''
-        // if (tmp.length >= 1 ) {
-        //   adate = tmp[0]
-        //  }
-        //  else{
-        //    console.log('fuck')
-        //  }
-        // if (tmp.length >= 2) {
-        //   bdate = tmp[1]
-        // }
-        // if (tmp.length >= 3) {
-        //   cdate = tmp[2]
-        // }
-        // if (nametmp.length >= 1) {
-        //   aname = nametmp[0]
-        // } 
-        // if (nametmp.length >= 2) {
-        //   bname = nametmp[1]
-        // } 
-        // if (nametmp.length >= 3) {
-        //   cname = nametmp[2]
-        // }
-        // wx.navigateTo({
-        //   //url: '../showResult/showResult?adate=' + adate + '&bdate=' + bdate + '&cdate=' + cdate + '&num=' + tmp.length,
-        //   url: '../showResult/showResult?adate=' + adate + '&bdate=' + bdate + '&cdate=' + cdate + '&num=' + tmp.length + '&aname=' + aname + '&bname=' + bname + '&cname=' + cname,
-        // })
+        })        
           console.log(result)
         
       },
@@ -171,7 +120,21 @@ Page({
       login: true,
       success(result) {
         util.showSuccess('查询完成')
-        
+        var tmp = result.data.data.hunnanlist
+        var data = []
+        for (let i = 0; i < tmp.length; i++) {
+          data.push({
+            title: tmp[i].nickname,
+            phone: tmp[i].phonenumber,
+            stroke: tmp[i].timeinfo,
+            show: false
+          })
+        }
+        var model = JSON.stringify(data);
+        console.log(model)
+        wx.navigateTo({
+          url: '../toHunNan/toHunNan?model=' + model,
+        })
         console.log(result)
 
       },

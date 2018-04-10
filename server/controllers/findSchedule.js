@@ -17,49 +17,10 @@ module.exports = async (ctx, next) => {
   var btimes = ctx.query.btimes
   var ctimes = ctx.query.ctimes
   var sches = await mysql(des).select('*').where('time', '>=', atimes).andWhere('time', '<=', ctimes)
-
-  // if (sches.length == 0) {
-  //   ctx.state.data = { bestData: [] }
-  //   return
-  // }
-
-  // var best_time = new Date(btimes)
-
-  // var divTwo = function (a, b) {
-  //   if (a == b) {
-  //     return a
-  //   }
-  //   if (b - a == 1) {
-  //     if (best_time < new Date(sches[a].time)) {
-  //       return a - 1
-  //     }
-  //     else if (best_time >= new Date(sches[b].time)) {
-  //       return b
-  //     }
-  //     else {
-  //       return a
-  //     }
-  //   }
-  //   var c = parseInt((a + b) / 2)
-  //   var tmp = new Date(sches[c].time)
-  //   if (best_time < tmp) {
-  //     return divTwo(a, c - 1)
-  //   }
-  //   else if (best_time > tmp) {
-  //     return divTwo(c + 1, b)
-  //   }
-  //   else {
-  //     return c
-  //   }
-  // }
-
-  // var best = divTwo(0, sches.length - 1)
-
   var formatDate = function (time) {
     var tmp = new Date(time)
     return tmp.getFullYear() + '-' + (tmp.getMonth() + 1) + '-' + tmp.getDate() + ' ' + tmp.getHours() + ':' + tmp.getMinutes()
   }
-
 
   var p1 = best, p2 = best + 1
   const bestData = []

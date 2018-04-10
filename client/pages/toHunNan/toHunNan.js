@@ -10,36 +10,36 @@ Page({
   data: {
     userInfo: {},
     listShow: [
-      {
-        title: "kobe",
-        phone: 12580,
-        stroke: [{
-          time: "",
-          passenger: "2"
-        }, {
-          time: "",
-          passenger: "1"
-        }],
-        show: false
-      }, {
-        title: "love",
-        phone: 12580,
-        stroke: [{
-          time: "2018-4-10 19:10",
-          passenger: "2"
-        }, {
-          time: "",
-          passenger: "1"
-          },{
-            time: "",
-            passenger: "1"
-        }, {
-          time: "",
-          passenger: "1"
-        }
-        ],
-        show: false
-      }
+      // {
+      //   title: "kobe",
+      //   phone: 12580,
+      //   stroke: [{
+      //     time: "",
+      //     passenger: "2"
+      //   }, {
+      //     time: "",
+      //     passenger: "1"
+      //   }],
+      //   show: false
+      // }, {
+      //   title: "love",
+      //   phone: 12580,
+      //   stroke: [{
+      //     time: "2018-4-10 19:10",
+      //     passenger: "2"
+      //   }, {
+      //     time: "",
+      //     passenger: "1"
+      //     },{
+      //       time: "",
+      //       passenger: "1"
+      //   }, {
+      //     time: "",
+      //     passenger: "1"
+      //   }
+      //   ],
+      //   show: false
+      // }
 
     ]
   },
@@ -70,12 +70,16 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function (options) {
     var that = this;
+    console.log(options.model)
+    var bean = JSON.parse(options.model);
+    console.log(bean)
     wx.getUserInfo({
       success: function (res) {
         that.setData({
           userInfo: res.userInfo,
+          listShow: bean
         })
       }
     })

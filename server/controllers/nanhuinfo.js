@@ -18,7 +18,7 @@ module.exports = async (ctx, next) => {
   console.log(btimes)
   var all = await mysql(des1).select('*')
   var nanhunamelist = await mysql(des1).select('*').where('time', '>=', atimes).andWhere('time', '<=', btimes) // 南湖时间段内总表
-  
+  var selfId = result[0].open_id
   //var hunnannamelist = await mysql(des2).select('*').where('time', '>=', atimes).andWhere('time', '<=', btimes) //浑南时间段内总表
 
   var formatDate = function (time) {//时间格式改变
@@ -30,25 +30,31 @@ module.exports = async (ctx, next) => {
   // console.log(hunnannamelist)
 
   ///////////////////////南湖信息处理/////////////////////
+  var nanhuforeign = []
+  for(let i =0; i<nanhunamelist.length ; i++){//去除本机信息
+    if(nanhunamelist[i].openId !=selfId){
+       nanhuforeign.push(nanhunamelist[i])
+    }
+  }
   var nanhuallusernum = [] // 时间段内筛选后用户信息
-  var userid = nanhunamelist[0].openId
+  var userid = nanhuforeign[0].openId
   nanhuallusernum.push({
-    openId: nanhunamelist[0].openId,
-    nickname : nanhunamelist[0].nickname
+    openId: nanhuforeign[0].openId,
+    nickname: nanhuforeign[0].nickname
   })
   console.log(nanhuallusernum)
   
-     for(let i =0 ;i<nanhunamelist.length ;i++){
+  for (let i = 0; i < nanhuforeign.length ;i++){
        var index = 0;
        for (let j = 0; j < nanhuallusernum.length; j++) {
-         if (nanhunamelist[i].openId == nanhuallusernum[j].openId) {
+         if (nanhuforeign[i].openId == nanhuallusernum[j].openId) {
            index += 1
          }
        }
        if (index == 0) {
          nanhuallusernum.push({
-           openId: nanhunamelist[i].openId,
-           nickname: nanhunamelist[i].nickname
+           openId: nanhuforeign[i].openId,
+           nickname: nanhuforeign[i].nickname
          })        
        }
      }
