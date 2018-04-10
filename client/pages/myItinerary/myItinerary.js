@@ -107,14 +107,14 @@ Page({
     var index = "listData[" + e.currentTarget.dataset.index+"].state";
     var id = e.currentTarget.dataset.index;
     var time = this.data.listData[id].time;
-    var destination = this.data.listData[id].destination;
-    var state = this.data.listData[id].state
+    var destination = this.data.listData[id].destination;    
     console.log(time);
     console.log(destination);
     console.log(id)
       this.setData({
         [index]: e.detail.value
       })
+    var state = this.data.listData[id].state
       console.log(this.data.listData);
       qcloud.request({
         url: `${config.service.host}/weapp/changestatus`,
@@ -154,7 +154,7 @@ Page({
         }
         var nname=result.data.data.nickname
         if(!nname){
-          util.showSuccess('fuck')
+          util.showSuccess('未上传日程')
           nname=[]
         }
         // var index = 1
