@@ -2,7 +2,6 @@ var qcloud = require('../../vendor/wafer2-client-sdk/index')
 var config = require('../../config')
 var util = require('../../utils/util.js')
 
-var app = getApp()
 
 Page({
   /**
@@ -10,7 +9,32 @@ Page({
    */
   data: {
     userInfo: {},
-    listShow: {}
+    listShow: [
+      {
+        title: "kobe",
+        phone: 12580,
+        stroke: [{
+          time: "",
+          passenger: "2"
+        }, {
+          time: "",
+          passenger: "1"
+        }],
+        show: false
+      }, {
+        title: "love",
+        phone: 12580,
+        stroke: [{
+          time: "",
+          passenger: "2"
+        }, {
+          time: "",
+          passenger: "1"
+        }],
+        show: false
+      }
+
+    ]
   },
 
   phoneNumTap: function () {
@@ -48,10 +72,6 @@ Page({
         })
       }
     })
-    that.data.listShow = app.list_HunNan,
-      that.setData({
-        'listShow': that.data.listShow
-      })
   },
 
   /**

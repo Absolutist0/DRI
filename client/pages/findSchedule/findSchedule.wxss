@@ -40,10 +40,3 @@ page {
 .setMargin{
   margin-left: 50px;
 }
-
-
-.detail {
-  margin-top: 50rpx;
-  margin-left: 500rpx;
-  color: lightblue;
-}

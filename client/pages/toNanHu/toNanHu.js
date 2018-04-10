@@ -10,7 +10,20 @@ Page({
    */
   data: {
       userInfo:{},
-      listShow: {}
+      listShow: [
+        {
+          title: "Carry",
+          phone: 12580,
+          stroke: [{
+            time: "",
+            passenger: "3"
+          }, {
+            time: "",
+            passenger: "2"
+          }],
+          show: false
+         }
+      ]
   },
 
   phoneNumTap: function () {
@@ -48,10 +61,6 @@ Page({
         })
       }
     })
-    that.data.listShow = app.list_NanHu,
-      that.setData({
-        'listShow': that.data.listShow
-      })
   },
 
   /**

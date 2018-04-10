@@ -154,7 +154,7 @@ Page({
         }
         var nname=result.data.data.nickname
         if(!nname){
-          util.showSuccess('fuck')
+          util.showSuccess('未上传日程')
           nname=[]
         }
         // var index = 1

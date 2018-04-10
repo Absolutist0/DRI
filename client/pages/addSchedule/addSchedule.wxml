@@ -27,5 +27,4 @@
    </label>
   </radio-group>
   <button class='litMargin' bindtap='submit'>添加日程</button>
-  <navigator url="../detailedSchedule/addDetail" open-type="navigate" class='detail'>添加详细日程</navigator>
 </view>

@@ -31,9 +31,3 @@ page {
 .litMargin {
   margin-top: 40rpx;
 }
-
-.detail {
-  margin-top: 30rpx;
-  margin-left: 500rpx;
-  color: lightblue;
-}

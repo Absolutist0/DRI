@@ -20,5 +20,4 @@
       <button bindtap='submitnanhu'>去南湖</button>
     </navigator>
   </view>
-  <navigator url="../detailedSchedule/findDetail" open-type="navigate" class='detail'>添加详细信息</navigator>
 </view>
