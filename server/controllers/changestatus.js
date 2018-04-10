@@ -11,7 +11,8 @@ module.exports = async (req, res) => {
     //  console.log('ruok')
     var nowtime = req.query.time
     var newstate = req.query.state
-    console.log(nowtime)
+    // console.log(nowtime)
+    console.log(newstate)
     var nowid = result.userinfo.openId
     var alltime = getinfo(des, nowid)
     for (let i = 0; i < alltime.length; i++) {
@@ -20,15 +21,17 @@ module.exports = async (req, res) => {
         break
       }
     }
-    if(newstate == false){
+    if(newstate == 'false'){
+      // console.log('ruok')
       newstate = 0
     }
     else{
       newstate = 1
     }
-    console.log(des)
-    console.log(nowid)
-    console.log(nowtime)     
+    console.log(newstate)
+    // console.log(des)
+    // console.log(nowid)
+    // console.log(nowtime)     
     changesta(des, nowid, nowtime,newstate)
   })
 }
@@ -39,12 +42,12 @@ var formatDate = function (time) {
 
 async function getinfo(des, nowid) {
   var tmp = await mysql(des).select('time')
-  console.log(tmp)
+  // console.log(tmp)
   return tmp
 }
 async function changesta(des, nowid, nowtime,newstatus) {
   await mysql(des).update({
     status : newstatus
   }).where('openId', nowid).andWhere('time', nowtime)
-  console.log('right')
+  // console.log('right')
 }
