@@ -92,7 +92,7 @@ module.exports = async (ctx, next) => {
     if (userid1 != hunnannamelist[i].openId) {
       var index1 = 0;
       for (let j = 0; j < hunnanallusernum.length; j++) {
-        if (hunnannamelist[i].openId == hunnanallusernum[i].openId) {
+        if (hunnannamelist[i].openId == hunnanallusernum[j].openId) {
           index1 += 1
         }
       }

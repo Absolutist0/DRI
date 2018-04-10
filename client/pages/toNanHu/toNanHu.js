@@ -11,18 +11,18 @@ Page({
   data: {
       userInfo:{},
       listShow: [
-        {
-          title: "Carry",
-          phone: 12580,
-          stroke: [{
-            time: "",
-            passenger: "3"
-          }, {
-            time: "",
-            passenger: "2"
-          }],
-          show: false
-         }
+        // {
+        //   title: "Carry",
+        //   phone: 12580,
+        //   stroke: [{
+        //     time: "",
+        //     passenger: "3"
+        //   }, {
+        //     time: "",
+        //     passenger: "2"
+        //   }],
+        //   show: false
+        //  }
       ]
   },
 
@@ -52,12 +52,17 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function() {
+  onLoad: function(options) {
     var that = this;
+    console.log(options.model)
+    var bean = JSON.parse(options.model);
+
+    console.log(bean)
     wx.getUserInfo({
       success: function (res) {
         that.setData({
           userInfo: res.userInfo,
+          listShow : bean
         })
       }
     })

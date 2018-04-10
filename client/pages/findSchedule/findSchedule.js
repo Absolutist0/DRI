@@ -80,8 +80,12 @@ Page({
               show : false
             })
         }
-         app.list_NanHu = data 
-         console.log(app.list_NanHu)
+        var model = JSON.stringify(data);
+        console.log(model)
+        wx.navigateTo({          
+          url: '../toNanHu/toNanHu?model='+model,
+        })
+        //  console.log(app.list_NanHu)
         // var tmp1 = result.data.data.hunnanlist
         // var tmp2 = result.data.data.nanhulist
         // const data1 = []

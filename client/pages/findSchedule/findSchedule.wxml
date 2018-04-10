@@ -12,12 +12,12 @@
   </view>
   <view class='litMargin'>{{year}}年{{month}}月{{day}}日 {{time}}</view>
   <view class='button'>
-    <navigator url='../toHunNan/toHunNan' open-type='navigate'>
+    <!-- <navigator url='../toHunNan/toHunNan' open-type='navigate'> -->
       <button  bindtap='submithunnan'>去浑南</button>
-    </navigator>
+    <!-- </navigator> -->
     <view class="setMargin"></view>
-    <navigator url='../toNanHu/toNanHu' open-type='navigate'>
+    <!-- <navigator url='../toNanHu/toNanHu' open-type='navigate'> -->
       <button bindtap='submitnanhu'>去南湖</button>
-    </navigator>
+    <!-- </navigator> -->
   </view>
 </view>
