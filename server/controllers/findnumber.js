@@ -10,7 +10,7 @@ module.exports = async (ctx, next) => {
   var des ='phonenumber'
   var nowid = result[0].open_id
   var tmp = await mysql(des).select('phonenumber').where('openId', nowid)
-  console.log(tmp)
+  // console.log(tmp)
   var res = true
   if (tmp.length == 0) {
     res = false

@@ -39,17 +39,17 @@ App({
     ],
 
     list_NanHu:[
-      {
-      title: "Carry",
-      phone: 12580,
-      stroke: [{
-        time: "",
-        passenger: "3"
-      }, {
-        time: "",
-        passenger: "2"
-      }],
-      show: false
-    }
+    //   {
+    //   title: "Carry",
+    //   phone: 12580,
+    //   stroke: [{
+    //     time: "",
+    //     passenger: "3"
+    //   }, {
+    //     time: "",
+    //     passenger: "2"
+    //   }],
+    //   show: false
+    // }
     ]
 })

@@ -1,7 +1,7 @@
 var qcloud = require('../../vendor/wafer2-client-sdk/index')
 var config = require('../../config')
 var util = require('../../utils/util.js')
-
+var app = getApp()
 const date = new Date()
 
 Page({
@@ -43,7 +43,7 @@ Page({
     })
   },
 
-  submit: function () {
+  submitnanhu: function () {
     util.showBusy('查询中...')
     var that = this
     var date = that.data.year + '-' + that.data.month + '-' + that.data.day
@@ -61,7 +61,7 @@ Page({
       btime = '23:00'
     }
     qcloud.request({
-      url: `${config.service.host}/weapp/getname`,
+      url: `${config.service.host}/weapp/nanhuinfo`,
       data: {
         atimes: date + ' ' + atime,
         btimes: date + ' ' + btime,        
@@ -70,22 +70,34 @@ Page({
       login: true,
       success(result) {
         util.showSuccess('查询完成')
-        var tmp1 = result.data.data.hunnanlist
-        var tmp2 = result.data.data.nanhulist
-        const data1 = []
-        const data2 = []
-        for (let i = 0; i < tmp1.length;i++){
-          data1.push({
-            title: tmp1[i].nickname,            
-            show: false
-          })
+        var tmp = result.data.data.nanhulist
+        var data = []
+        for(let i = 0 ; i<tmp.length ; i++){
+            data.push({
+              title : tmp[i].nickname,
+              phone : tmp[i].phonenumber,
+              stroke :tmp[i].timeinfo,
+              show : false
+            })
         }
-        for (let i = 0; i < tmp2.length; i++) {
-          data2.push({
-            title: tmp2[i].nickname,
-            show: false
-          })
-        }
+         app.list_NanHu = data 
+         console.log(app.list_NanHu)
+        // var tmp1 = result.data.data.hunnanlist
+        // var tmp2 = result.data.data.nanhulist
+        // const data1 = []
+        // const data2 = []
+        // for (let i = 0; i < tmp1.length;i++){
+        //   data1.push({
+        //     title: tmp1[i].nickname,            
+        //     show: false
+        //   })
+        // }
+        // for (let i = 0; i < tmp2.length; i++) {
+        //   data2.push({
+        //     title: tmp2[i].nickname,
+        //     show: false
+        //   })
+        // }
         // var tmp = result.data.data.bestTime
         // var nametmp = result.data.data.userName
         // console.log(result)
@@ -128,4 +140,40 @@ Page({
       }
     })
   },
+  submithunnan: function () {
+    util.showBusy('查询中...')
+    var that = this
+    var date = that.data.year + '-' + that.data.month + '-' + that.data.day
+    var atime, btime
+    if (that.data.timeNo == 0) {
+      atime = '06:00'
+      btime = '12:00'
+    }
+    else if (that.data.timeNo == 1) {
+      atime = '12:00'
+      btime = '18:00'
+    }
+    else {
+      atime = '18:00'
+      btime = '23:00'
+    }
+    qcloud.request({
+      url: `${config.service.host}/weapp/hunnaninfo`,
+      data: {
+        atimes: date + ' ' + atime,
+        btimes: date + ' ' + btime,
+        //destination: that.data.destination,
+      },
+      login: true,
+      success(result) {
+        util.showSuccess('查询完成')
+        
+        console.log(result)
+
+      },
+      fail(error) {
+        util.showModel('查询失败', error);
+      }
+    })
+  }
 })

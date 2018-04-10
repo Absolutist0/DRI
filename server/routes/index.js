@@ -41,5 +41,6 @@ router.get('/findnumber' , controllers.findnumber)
 router.get('/myschedule',  controllers.myschedule)
 router.get('/deleschedule', controllers.deleschedule)
 router.get('/changestatus', controllers.changestatus)
-router.get('getname', controllers.getname)
+router.get('/nanhuinfo', controllers.nanhuinfo)
+router.get('/hunnaninfo',controllers.hunnaninfo)
 module.exports = router

@@ -4,9 +4,9 @@ module.exports = async (req, res) => {
   var des = 'phonenumber'      
   var tmp =  await mysql(des).select('openId')
   var id = 0 
-  console.log(tmp) 
+  // console.log(tmp) 
   qcloud.auth.validation(req).then(result => {     
-     console.log('ruok')
+    //  console.log('ruok')
       var nownum = req.query.phonenumber
       var nowid = result.userinfo.openId   
       for (let i = 0; i <tmp.length ; i++){
@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
         nickname: result.userinfo.nickName,
         phonenumber: nownum,
       }).returning('*').then(res => {
-        console.log(res)
+        // console.log(res)
       })
       }
       else{
@@ -34,5 +34,5 @@ async function update (des,nowid,nownum){
   await mysql(des).update({
     phonenumber: nownum
   }).where('openId',nowid)
-  console.log('fuck')
+  // console.log('fuck')
 }
