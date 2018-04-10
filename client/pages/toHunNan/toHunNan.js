@@ -25,12 +25,19 @@ Page({
         title: "love",
         phone: 12580,
         stroke: [{
-          time: "",
+          time: "2018-4-10 19:10",
           passenger: "2"
         }, {
           time: "",
           passenger: "1"
-        }],
+          },{
+            time: "",
+            passenger: "1"
+        }, {
+          time: "",
+          passenger: "1"
+        }
+        ],
         show: false
       }
 

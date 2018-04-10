@@ -68,16 +68,16 @@ page {
 
 .time{
   margin-top: 20px;
-  width: 40%;
+  width: 80%;
   position: absolute;
   left: 5px;
 }
 
 .destination{
   margin-top: 20px;
-  width:40%;
+  width:20%;
   position:absolute;
-  right: 5px;
+  right: 20px;
 }
 
 

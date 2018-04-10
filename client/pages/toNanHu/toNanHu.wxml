@@ -1,6 +1,6 @@
 <view>
 
-    <image style='width:780rpx' src='/pages/Images/NEU5.jpg' mode='widthFit'></image>
+    <image style='width:780rpx' src='/pages/Images/NEU2.png' mode='widthFit'></image>
 
     <scroll-view scroll-y="true" style="height: 100%;" bindscrolltoupper="upper"                   bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}"                    scroll-top="{{scrollTop}}">
 
@@ -10,19 +10,25 @@
           <text class='friend-name'>{{item.title}}</text>
           <image src='../Images/pulldown2.png' mode='widthFix' style='width:60rpx'                                data-index="{{index}}" bindtap='showContent' class='image'></image>
         </view>
-        <view  class="pick-container {{item.show ?'showClass': 'hideClass'}}">
-          <view class='tele-number' bindlongtap='phoneNumTap'>
-          联系他（她）：{{item.phone}} </view>
-          <view wx:for="{{item.stroke}}" wx:for-item="item1" wx:key="">
-            <view class='stroke'>
-              <text class='time'>出发时间：{{item1.time}}</text>
-              <text class='destination'>可乘人数：{{item1.passenger}}</text>
-            </view>
+
+          <view  class="pick-container {{item.show ?'showClass': 'hideClass'}}">
+            <view class='tele-number' bindlongtap='phoneNumTap'>
+            联系他（她）：{{item.phone}} </view>
+            <view>
+              <scroll-view scroll-y="true" style="height:90px;" bindscrolltoupper="upper"                            bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}"                            scroll-top="{{scrollTop}}">
+              <view wx:for="{{item.stroke}}" wx:for-item="item1" wx:key="">
+                <view class='stroke'>
+                  <text class='time'>时间：{{item1.time}}</text>
+                  <text class='destination'>人数：{{item1.passenger}}</text>
+                </view>
+              </view>
+            </scroll-view>  
           </view>
+
         </view>
 
       </view>
-
     </scroll-view>
 
 </view>
+ 
