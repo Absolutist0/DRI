@@ -89,7 +89,10 @@ Page({
         
       },
       fail(error) {
-        util.showModel('查询失败', error);
+        wx.showModal({
+          title: '查询失败',
+          content: '所选时间段没有人发布行程',
+        })
       }
     })
   },
@@ -139,7 +142,10 @@ Page({
 
       },
       fail(error) {
-        util.showModel('查询失败', error);
+        wx.showModal({
+          title: '查询失败',
+          content: '当前时间段没有人发布行程',
+        })
       }
     })
   }

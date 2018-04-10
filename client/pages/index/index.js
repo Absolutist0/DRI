@@ -13,6 +13,26 @@ Page({
     requestResult: '',
     phoneNum:false
   },
+
+  onShow: function () {
+    var that = this 
+    qcloud.request({
+      url: `${config.service.host}/weapp/findnumber`,
+      data: {
+      },
+      login: true,
+      success(result) {
+        var tmp = result.data.data.isexist
+        var nownum = result.data.data.phonenum
+        that.setData({
+          phoneNum: nownum
+        })
+      },
+      fail(error) {
+        util.showSuccess('未绑定手机号');
+      }
+    })
+  },
  
   // 用户登录示例
   onLoad: function () {

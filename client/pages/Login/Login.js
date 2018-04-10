@@ -32,10 +32,13 @@ Page({
         if(tmp == true){
           wx.showModal({
             title: '您已绑定手机号',
-            content: '是否修改手机号',
+            content: ' 是否修改手机号：'+ that.data.phoneNum,
             success: function (res) {
               if (res.confirm) {
                 console.log('用户点击确定')
+                that.setData({
+                  show:"修改手机号"
+                })
               } else if (res.cancel) {  
                 wx.navigateBack({
                   url: '../index/index'
@@ -95,6 +98,6 @@ Page({
         }
       })
     }
-  },
+  }
   
 })
