@@ -80,7 +80,9 @@ Page({
               show : false
             })
         }
+        console.log(data)
         var model = JSON.stringify(data);
+        console.log('ruok')
         console.log(model)
         wx.navigateTo({          
           url: '../toNanHu/toNanHu?model='+model,

@@ -67,10 +67,11 @@ module.exports = async (ctx, next) => {
       var timeinfo = []//用户对应时间
     for(let j =0;j < nanhunamelist.length ; j++){//获取时间
       var nowtime = formatDate(nanhunamelist[j].time)
-      var nowcapa = nanhunamelist[i].peoplenum
+      var nowcapa = ' '
       console.log(nowtime)
       if (nanhunamelist[j].openId == nanhuallusernum[i].openId ) {//ID匹配
         if(nanhunamelist[j].status == 0){//是否满员
+            nowcapa = nanhunamelist[j].peoplenum
             timeinfo.push({
               time : nowtime,
               passenger : nowcapa

@@ -16,7 +16,7 @@
             联系他（她）：{{item.phone}} </view>
             <view>
               <scroll-view scroll-y="true" style="height:90px;" bindscrolltoupper="upper"                            bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}"                            scroll-top="{{scrollTop}}">
-              <view wx:for="{{item.stroke}}" wx:for-item="item1" wx:key="">
+              <view wx:for="{{item.stroke}}" wx:for-item="item1" wx:key="" data-index='index'>
                 <view class='stroke'>
                   <text class='time'>时间：{{item1.time}}</text>
                   <text class='destination'>人数：{{item1.passenger}}</text>
